@@ -34,7 +34,7 @@ namespace Backend.Shared.API.Controllers
         /// </summary>
         /// <param name="numeroCertificadoDefuncion"></param>
         /// <returns></returns>
-        [HttpGet("ValidateCertificadoDefuncion/{numeroIdentificacion}")]
+        [HttpGet("ValidateCertificadoDefuncion/{numeroCertificadoDefuncion}")]
         public async Task<ActionResult> ValidateCertificadoDefuncion(string numeroCertificadoDefuncion)
         {
             var result = await _certificadoDefuncionBusiness.ValidateCertificadoDefuncion(numeroCertificadoDefuncion);

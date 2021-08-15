@@ -70,9 +70,9 @@
         </member>
         <member name="M:Backend.Shared.API.Controllers.CertificadoDefuncionController.ValidateCertificadoDefuncion(System.String)">
             <summary>
-            Gets the profesional salud by numero identificacion.
+            ValidateCertificadoDefuncion
             </summary>
-            <param name="numeroIdentificacion">The numero identificacion.</param>
+            <param name="numeroCertificadoDefuncion"></param>
             <returns></returns>
         </member>
         <member name="T:Backend.Shared.API.Controllers.DepartamentoController">
