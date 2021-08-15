@@ -43,7 +43,7 @@ namespace Backend.Shared.BusinessRules
                 var result = await _oracleContext.ExecuteQuery<dynamic>($"SELECT NUM_CERTIFICADO_DEFUNCION FROM V_MUERTOS_INH_CRE WHERE NUM_CERTIFICADO_DEFUNCION = {Convert.ToDecimal(numeroCertificadoDefuncion)}");
                 if (result.Count() == 0)
                 {
-                    return new Entities.Responses.ResponseBase<dynamic>(code: HttpStatusCode.OK, message: Middle.Messages.NoContent);
+                    return new Entities.Responses.ResponseBase<dynamic>(code: HttpStatusCode.OK, message: Middle.Messages.NoContent, data: false);
                 }
                 return new Entities.Responses.ResponseBase<dynamic>(code: HttpStatusCode.OK, message: Middle.Messages.GetOk, data: true, count: result.Count());
             }
