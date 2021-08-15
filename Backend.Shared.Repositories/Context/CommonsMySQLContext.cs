@@ -23,6 +23,8 @@ namespace Backend.Shared.Repositories.Context
 
         public virtual DbSet<Entities.Models.Tramites.PrPais> Pais { get; set; }
 
+        public virtual DbSet<Entities.Models.Tramites.PrTipoidentificacion> Tipoidentificacion { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -232,6 +234,24 @@ namespace Backend.Shared.Repositories.Context
                     .IsUnicode(false);
 
                 entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrTipoidentificacion>(entity =>
+            {
+                entity.HasKey(e => e.IdTipoIdentificacion)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_tipoidentificacion");
+
+                entity.Property(e => e.Codigo)
+                    .IsRequired()
+                    .HasMaxLength(4)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
