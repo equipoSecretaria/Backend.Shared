@@ -32,6 +32,7 @@ namespace Backend.Shared.API.Injections
             services.AddTransient<IUpzBusiness, UpzBusiness>();
             services.AddTransient<IBarrioBusiness, BarrioBusiness>();
             services.AddTransient<ICertificadoDefuncionBusiness, CertificadoDefuncionBusiness>();
+            services.AddTransient<IPersonaBusiness, PersonaBusiness>();
         }
     }
 }
