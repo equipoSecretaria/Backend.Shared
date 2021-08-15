@@ -11,6 +11,19 @@ namespace Backend.Shared.Repositories.Context
 
         public virtual DbSet<Entities.Models.Tramites.Persona> Persona { get; set; }
 
+        public virtual DbSet<Entities.Models.Tramites.PrNiveleducativo> Niveleducativo { get; set; }
+
+        public virtual DbSet<Entities.Models.Tramites.PrEtnia> Etnia { get; set; }
+
+
+        public virtual DbSet<Entities.Models.Tramites.PrSexo> Sexo { get; set; }
+
+        public virtual DbSet<Entities.Models.Tramites.PrDepartamento> Departamento { get; set; }
+
+
+        public virtual DbSet<Entities.Models.Tramites.PrPais> Pais { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Entities.Models.Tramites.Persona>(entity =>
@@ -137,8 +150,96 @@ namespace Backend.Shared.Repositories.Context
 
                 entity.Property(e => e.Zona).HasColumnName("zona");
             });
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrNiveleducativo>(entity =>
+            {
+                entity.HasKey(e => e.IdNivelEducativo)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_niveleducativo");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrEtnia>(entity =>
+            {
+                entity.HasKey(e => e.IdEtnia)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_etnia");
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrSexo>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("pr_sexo");
+
+                entity.Property(e => e.DescripcionSexo)
+                    .HasColumnName("descripcion_sexo")
+                    .HasMaxLength(45)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdSexo).HasColumnName("id_sexo");
+            });
+
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrDepartamento>(entity =>
+            {
+                entity.HasKey(e => e.IdDepartamento)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_departamento");
+
+                entity.HasIndex(e => e.IdPais)
+                    .HasName("IndiceDepartamentoPais");
+
+                entity.Property(e => e.CodigoDane)
+                    .IsRequired()
+                    .HasMaxLength(5)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdPais)
+                    .IsRequired()
+                    .HasMaxLength(11)
+                    .IsUnicode(false);
+            });
+
+
+            modelBuilder.Entity<Entities.Models.Tramites.PrPais>(entity =>
+            {
+                entity.HasKey(e => e.IdPais)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_pais");
+
+                entity.Property(e => e.IdPais)
+                    .HasMaxLength(11)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
+
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

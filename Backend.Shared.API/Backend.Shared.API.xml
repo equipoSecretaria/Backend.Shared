@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Backend.Shared.API</name>
+    </assembly>
+    <members>
+        <member name="T:Backend.Shared.API.Controllers.BarrioController">
+            <summary>
+            BarrioController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.BarrioController.BarrioBusiness">
+            <summary>
+            The barrio business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.BarrioController.#ctor(Backend.Shared.Entities.Interface.Business.IBarrioBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.BarrioController"/> class.
+            </summary>
+            <param name="barrioBusiness">The barrio business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.BarrioController.GetBarrioByIdUpz(System.String)">
+            <summary>
+            Gets the barrio by identifier upz.
+            </summary>
+            <param name="idUpz">The identifier upz.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.CementerioController">
+            <summary>
+            CementerioController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.CementerioController.CementerioBusiness">
+            <summary>
+            The cementerio business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.CementerioController.#ctor(Backend.Shared.Entities.Interface.Business.ICementerioBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.CementerioController"/> class.
+            </summary>
+            <param name="cementerioBusiness">The cementerio business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.CementerioController.GetAllCementerio">
+            <summary>
+            Gets all cementerio.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.DepartamentoController">
+            <summary>
+            DepartamentoController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.DepartamentoController.DepartamentoBusiness">
+            <summary>
+            The departamento business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.DepartamentoController.#ctor(Backend.Shared.Entities.Interface.Business.IDepartamentoBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.DepartamentoController"/> class.
+            </summary>
+            <param name="departamentoBusiness">The departamento business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.DepartamentoController.GetAllDepartamento">
+            <summary>
+            Gets the departamento.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.DominioController">
+            <summary>
+            ProfesionalesSaludController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.DominioController.DominioBusiness">
+            <summary>
+            The dominio business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.DominioController.#ctor(Backend.Shared.Entities.Interface.Business.IDominioBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.DominioController"/> class.
+            </summary>
+            <param name="dominioBusiness">The dominio business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.DominioController.GetAllDominio(System.String)">
+            <summary>
+            Gets all dominio.
+            </summary>
+            <param name="tipoDominio">The tipo dominio.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.EstadoCivilController">
+            <summary>
+            EstadoCivil
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.EstadoCivilController.EstadoCivilBusiness">
+            <summary>
+            The estado civil business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.EstadoCivilController.#ctor(Backend.Shared.Entities.Interface.Business.IEstadoCivilBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.EstadoCivilController"/> class.
+            </summary>
+            <param name="estadoCivilBusiness">The estado civil business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.EstadoCivilController.GetEstadoCivil">
+            <summary>
+            Gets the estado civil.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.EtniaController">
+            <summary>
+            EtniaController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.EtniaController.EtniaBusiness">
+            <summary>
+            The etnia business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.EtniaController.#ctor(Backend.Shared.Entities.Interface.Business.IEtniaBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.EtniaController"/> class.
+            </summary>
+            <param name="etniaBusiness">The etnia business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.EtniaController.GetEtnia">
+            <summary>
+            Gets the etnia.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.FunerariaController">
+            <summary>
+            FunerariaController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.FunerariaController.FunerariaBusiness">
+            <summary>
+            The funeraria business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.FunerariaController.#ctor(Backend.Shared.Entities.Interface.Business.IFunerariaBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.FunerariaController"/> class.
+            </summary>
+            <param name="funerariaBusiness">The funeraria business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.FunerariaController.GetAllFuneraria">
+            <summary>
+            Gets all funeraria.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.InstitucionController">
+            <summary>
+            InstitucionController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.InstitucionController.InstitucionBusiness">
+            <summary>
+            The institucion business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.InstitucionController.#ctor(Backend.Shared.Entities.Interface.Business.IInstitucionBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.InstitucionController"/> class.
+            </summary>
+            <param name="institucionBusiness">The institucion business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.InstitucionController.GetInstitucionByRazonSocial(System.String)">
+            <summary>
+            Gets the institucion by razon social.
+            </summary>
+            <param name="razonSocial">The razon social.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.LocalidadController">
+            <summary>
+            MunicipioController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.LocalidadController.LocalidadBusiness">
+            <summary>
+            The localidad business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.LocalidadController.#ctor(Backend.Shared.Entities.Interface.Business.ILocalidadBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.LocalidadController"/> class.
+            </summary>
+            <param name="localidadBusiness">The localidad business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.LocalidadController.GetAllLocalidad">
+            <summary>
+            Gets all localidad.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.MunicipioController">
+            <summary>
+            MunicipioController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.MunicipioController.MunicipioBusiness">
+            <summary>
+            The municipio business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.MunicipioController.#ctor(Backend.Shared.Entities.Interface.Business.IMunicipioBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.MunicipioController"/> class.
+            </summary>
+            <param name="municipioBusiness">The municipio business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.MunicipioController.GetMunicipioByIdDepartamento(System.String)">
+            <summary>
+            Gets the municipio by identifier departamento.
+            </summary>
+            <param name="idDepartamento">The identifier departamento.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.NivelEducativoController">
+            <summary>
+            NivelEducativoController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.NivelEducativoController.NivelEducativoBusiness">
+            <summary>
+            The nivel educativo business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.NivelEducativoController.#ctor(Backend.Shared.Entities.Interface.Business.INivelEducativoBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.NivelEducativoController"/> class.
+            </summary>
+            <param name="nivelEducativoBusiness">The nivel educativo business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.NivelEducativoController.GetNivelEducativo">
+            <summary>
+            Gets the nivel educativo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.PaisController">
+            <summary>
+            PaisController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.PaisController.PaisBusiness">
+            <summary>
+            The pais business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.PaisController.#ctor(Backend.Shared.Entities.Interface.Business.IPaisBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.PaisController"/> class.
+            </summary>
+            <param name="paisBusiness">The pais business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.PaisController.GetPais">
+            <summary>
+            Gets the pais.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.ProfesionalesSaludController">
+            <summary>
+            ProfesionalesSaludController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.ProfesionalesSaludController.ProfesionalesSaludBusiness">
+            <summary>
+            The profesionales salud business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.ProfesionalesSaludController.#ctor(Backend.Shared.Entities.Interface.Business.IProfesionalesSaludBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.ProfesionalesSaludController"/> class.
+            </summary>
+            <param name="profesionalesSaludBusiness">The profesionales salud business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.ProfesionalesSaludController.GetProfesionalSaludByNumeroIdentificacion(System.String)">
+            <summary>
+            Gets the profesional salud by numero identificacion.
+            </summary>
+            <param name="numeroIdentificacion">The numero identificacion.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.SexoController">
+            <summary>
+            SexoController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.SexoController.SexoBusiness">
+            <summary>
+            The sexo business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.SexoController.#ctor(Backend.Shared.Entities.Interface.Business.ISexoBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.SexoController"/> class.
+            </summary>
+            <param name="sexoBusiness">The sexo business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.SexoController.GetSexo">
+            <summary>
+            Gets the sexo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.TipoIdentificacionController">
+            <summary>
+            TipoIdentificacionController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.TipoIdentificacionController.TipoIdentificacionBusiness">
+            <summary>
+            The tipo identificacion business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.TipoIdentificacionController.#ctor(Backend.Shared.Entities.Interface.Business.ITipoIdentificacionBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.TipoIdentificacionController"/> class.
+            </summary>
+            <param name="tipoIdentificacionBusiness">The tipo identificacion business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.TipoIdentificacionController.GetTipoIdentificacion">
+            <summary>
+            Gets the tipo identificacion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.UpzController">
+            <summary>
+            UpzController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.UpzController.UpzBusiness">
+            <summary>
+            The upz business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.UpzController.#ctor(Backend.Shared.Entities.Interface.Business.IUpzBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.UpzController"/> class.
+            </summary>
+            <param name="upzBusiness">The upz business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.UpzController.GetUpzByIdLocalidad(System.String)">
+            <summary>
+            Gets the upz by identifier localidad.
+            </summary>
+            <param name="idLocalidad">The identifier localidad.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.v2.PersonaController">
+            <summary>
+            public class HomeController : Controller
+            </summary>
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.v2.PersonaController._personaBusiness">
+            <summary>
+            personaBusiness
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.v2.PersonaController.#ctor(Backend.Shared.Entities.Interface.Business.IPersonaBusiness)">
+            <summary>
+            PersonaController
+            </summary>
+            <param name="personaBusiness"></param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.v2.PersonaController.AddPersonaNatural(Backend.Shared.Entities.DTOs.v2.RequestPersonaNaturalDTO)">
+            <summary>
+            AddPersonaNatural
+            </summary>
+            <param name="personaDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.v2.PersonaController.AddPersonaJuridica(Backend.Shared.Entities.DTOs.v2.RequestPersonaJuridicaDTO)">
+            <summary>
+            AddPersonaJuridica
+            </summary>
+            <param name="requestPersonaJuridicaDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Injections.BusinessInjection">
+            <summary>
+            Business Injection
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Injections.BusinessInjection.AddBusinessConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the business configuration.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="T:Backend.Shared.API.Injections.InitialInjection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Injections.InitialInjection.AddInitialConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the initial configuration.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Injections.InitialInjection.UseInitialConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Uses the initial configuration.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="T:Backend.Shared.API.Injections.SwaggerInjection">
+            <summary>
+            Swagger Injection
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Injections.SwaggerInjection.AddSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the swagger configuration.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Injections.SwaggerInjection.UseSwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Uses the swagger configuration.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="T:Backend.Shared.API.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Backend.Shared.API.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Backend.Shared.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>
