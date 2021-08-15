@@ -51,6 +51,30 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Backend.Shared.API.Controllers.CertificadoDefuncionController">
+            <summary>
+            CertificadoDefuncionController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.CertificadoDefuncionController._certificadoDefuncionBusiness">
+            <summary>
+            _certificadoDefuncionBusiness
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.CertificadoDefuncionController.#ctor(Backend.Shared.Entities.Interface.Business.ICertificadoDefuncionBusiness)">
+            <summary>
+            CertificadoDefuncionController
+            </summary>
+            <param name="certificadoDefuncionBusiness"></param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.CertificadoDefuncionController.ValidateCertificadoDefuncion(System.String)">
+            <summary>
+            Gets the profesional salud by numero identificacion.
+            </summary>
+            <param name="numeroIdentificacion">The numero identificacion.</param>
+            <returns></returns>
+        </member>
         <member name="T:Backend.Shared.API.Controllers.DepartamentoController">
             <summary>
             DepartamentoController
