@@ -9,11 +9,11 @@ namespace Backend.Shared.Entities.Interface.Business
     public interface IMunicipioBusiness
     {
         /// <summary>
-        /// Gets the municipio by identifier departamento.
+        /// GetMunicipioByIdDepartamento
         /// </summary>
-        /// <param name="idDepartamento">The identifier departamento.</param>
+        /// <param name="idDepartamento"></param>
         /// <returns></returns>
-        Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Municipio>>> GetMunicipioByIdDepartamento(string idDepartamento);
+        Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento);
 
     }
 }

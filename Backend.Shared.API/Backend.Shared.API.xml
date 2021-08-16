@@ -255,7 +255,7 @@
             </summary>
             <param name="municipioBusiness">The municipio business.</param>
         </member>
-        <member name="M:Backend.Shared.API.Controllers.MunicipioController.GetMunicipioByIdDepartamento(System.String)">
+        <member name="M:Backend.Shared.API.Controllers.MunicipioController.GetMunicipioByIdDepartamento(System.Int32)">
             <summary>
             Gets the municipio by identifier departamento.
             </summary>
