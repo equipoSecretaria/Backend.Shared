@@ -46,7 +46,7 @@ namespace Backend.Shared.Entities.CustomValidation
                     .SelectMany(key => modelState[key].Errors.Select(x => new ValidationError(key, x.ErrorMessage)))
                     .ToList();
 
-            Code = StatusCodes.Status422UnprocessableEntity;
+            Code = StatusCodes.Status202Accepted;
         }
         #endregion
     }
