@@ -35,7 +35,7 @@ namespace Backend.Shared.API.Controllers
         /// <param name="idDepartamento">The identifier departamento.</param>
         /// <returns></returns>
         [HttpGet("GetMunicipioByIdDepartamento/{idDepartamento}")]
-        public async Task<ActionResult> GetMunicipioByIdDepartamento(string idDepartamento)
+        public async Task<ActionResult> GetMunicipioByIdDepartamento(int idDepartamento)
         {
             var result = await MunicipioBusiness.GetMunicipioByIdDepartamento(idDepartamento);
             return StatusCode(result.Code, result);

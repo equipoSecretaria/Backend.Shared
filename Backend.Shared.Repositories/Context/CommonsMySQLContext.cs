@@ -25,6 +25,8 @@ namespace Backend.Shared.Repositories.Context
 
         public virtual DbSet<Entities.Models.Tramites.PrTipoidentificacion> Tipoidentificacion { get; set; }
 
+        public virtual DbSet<Entities.Models.Tramites.PrMunicipio> Municipio { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -257,10 +259,29 @@ namespace Backend.Shared.Repositories.Context
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Entities.Models.Tramites.PrMunicipio>(entity =>
+            {
+                entity.HasKey(e => e.IdMunicipio)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("pr_municipio");
+
+                entity.HasIndex(e => e.IdDepartamento)
+                    .HasName("IndexMunicipioDepartamento");
+
+                entity.Property(e => e.CodigoDane)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
-
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

@@ -14,7 +14,7 @@ namespace Backend.Shared.BusinessRules
         /// <summary>
         /// The repo municipio
         /// </summary>
-        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Municipio> RepoMunicipio;
+        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> RepoMunicipio;
 
         /// <summary>
         /// The telemetry exception
@@ -28,7 +28,7 @@ namespace Backend.Shared.BusinessRules
         /// </summary>
         /// <param name="repoMunicipio">The repo municipio.</param>
         /// <param name="telemetryException">The telemetry exception.</param>
-        public MunicipioBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Municipio> repoMunicipio,
+        public MunicipioBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> repoMunicipio,
                                  Utilities.Telemetry.ITelemetryException telemetryException)
         {
             RepoMunicipio = repoMunicipio;
@@ -44,22 +44,22 @@ namespace Backend.Shared.BusinessRules
         /// <param name="idDepartamento">The identifier departamento.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<ResponseBase<List<Municipio>>> GetMunicipioByIdDepartamento(string idDepartamento)
+        public async Task<ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento)
         {
             try
             {
-                var result = await RepoMunicipio.GetAllAsync(predicate: p => p.IdDepartamento.Equals(Guid.Parse(idDepartamento)));
+                var result = await RepoMunicipio.GetAllAsync(predicate: p => p.IdDepartamento.Equals(idDepartamento));
 
                 if (result == null)
                 {
-                    return new Entities.Responses.ResponseBase<List<Municipio>>(code: HttpStatusCode.OK, message: Middle.Messages.NoContent);
+                    return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>(code: HttpStatusCode.OK, message: Middle.Messages.NoContent);
                 }
-                return new Entities.Responses.ResponseBase<List<Municipio>>(code: HttpStatusCode.OK, message: Middle.Messages.GetOk, data: result.ToList(), count: result.Count());
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>(code: HttpStatusCode.OK, message: Middle.Messages.GetOk, data: result.ToList(), count: result.Count());
             }
             catch (Exception ex)
             {
                 TelemetryException.RegisterException(ex);
-                return new Entities.Responses.ResponseBase<List<Municipio>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
         #endregion
