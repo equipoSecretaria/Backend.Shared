@@ -1,5 +1,4 @@
-﻿using Backend.Shared.Entities.Models.Commons;
-using Backend.Shared.Entities.Responses;
+﻿using Backend.Shared.Entities.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

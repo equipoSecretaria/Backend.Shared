@@ -55,6 +55,19 @@ namespace Backend.Shared.API.Controllers.v2
             var result = await _personaBusiness.AddPersonaJuridica(requestPersonaJuridicaDTO);
             return StatusCode(result.Code, result);
         }
+
+
+        /// <summary>
+        /// GetInfoUserById
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
+        [HttpGet("GetInfoUserById/{idUser}")]
+        public async Task<ActionResult> GetInfoUserById(int idUser)
+        {
+            var result = await _personaBusiness.GetInfoUserById(idUser);
+            return StatusCode(result.Code, result);
+        }
         #endregion
     }
 }
