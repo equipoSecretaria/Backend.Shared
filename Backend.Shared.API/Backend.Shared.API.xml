@@ -432,6 +432,13 @@
             <param name="requestPersonaJuridicaDTO"></param>
             <returns></returns>
         </member>
+        <member name="M:Backend.Shared.API.Controllers.v2.PersonaController.GetInfoUserById(System.Int32)">
+            <summary>
+            GetInfoUserById
+            </summary>
+            <param name="idUser"></param>
+            <returns></returns>
+        </member>
         <member name="T:Backend.Shared.API.Injections.BusinessInjection">
             <summary>
             Business Injection

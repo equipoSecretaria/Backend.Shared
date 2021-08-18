@@ -20,7 +20,7 @@ namespace Backend.Shared.BusinessRules
         /// <summary>
         /// The telemetry exception
         /// </summary>
-        private readonly ITelemetryException TelemetryException;
+        private readonly ITelemetryException _telemetryException;
         #endregion
 
         #region Constructor        
@@ -32,7 +32,7 @@ namespace Backend.Shared.BusinessRules
         public PersonaBusiness(ITelemetryException telemetryException,
                                IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.Persona> repositoryPersona)
         {
-            TelemetryException = telemetryException;
+            _telemetryException = telemetryException;
             _repositoryPersona = repositoryPersona;
         }
         #endregion
@@ -87,7 +87,7 @@ namespace Backend.Shared.BusinessRules
             }
             catch (Exception ex)
             {
-                TelemetryException.RegisterException(ex);
+                _telemetryException.RegisterException(ex);
                 return new ResponseBase<int>(HttpStatusCode.InternalServerError, ex.Message);
             }
         }
@@ -149,8 +149,36 @@ namespace Backend.Shared.BusinessRules
             }
             catch (Exception ex)
             {
-                TelemetryException.RegisterException(ex);
+                _telemetryException.RegisterException(ex);
                 return new ResponseBase<int>(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// GetInfoUserById
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
+        public async Task<ResponseBase<dynamic>> GetInfoUserById(int idUser)
+        {
+            try
+            {
+                var result = await _repositoryPersona.GetAsync(predicate: p => p.IdPersona.Equals(idUser));
+
+                var personaDTO = new Entities.DTOs.PersonaVentanillaDTO
+                {
+                    FullName = result.PNombre + " " + result.SNombre + " " + result.PApellido + " " + result.SApellido,
+                    NumeroIdentificacion = result.NumeIdentificacion,
+                    RazonSocial = result.NombreRs
+                };
+
+                return new ResponseBase<dynamic>(code: HttpStatusCode.OK, message: "Solicitudd Ok", data: personaDTO);
+
+            }
+            catch (Exception ex)
+            {
+                _telemetryException.RegisterException(ex);
+                return new ResponseBase<dynamic>(code: HttpStatusCode.InternalServerError, message: ex.Message);
             }
         }
         #endregion

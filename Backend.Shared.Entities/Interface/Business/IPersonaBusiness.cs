@@ -18,5 +18,12 @@ namespace Backend.Shared.Entities.Interface.Business
         /// <param name="requestPersonaJuridicaDTO"></param>
         /// <returns></returns>
         Task<ResponseBase<int>> AddPersonaJuridica(Entities.DTOs.v2.RequestPersonaJuridicaDTO requestPersonaJuridicaDTO);
+
+        /// <summary>
+        /// GetInfoUserById
+        /// </summary>
+        /// <param name="idUser"></param>
+        /// <returns></returns>
+        Task<ResponseBase<dynamic>> GetInfoUserById(int idUser);
     }
 }
