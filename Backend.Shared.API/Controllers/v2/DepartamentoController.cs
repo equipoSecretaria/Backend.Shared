@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Backend.Shared.API.Controllers
+namespace Backend.Shared.API.Controllers.v2
 {
     /// <summary>
     /// DepartamentoController
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
-    [ApiController, Route("api/v1/[controller]")]
+    [ApiController, Route("api/v2/[controller]")]
     public class DepartamentoController : ControllerBase
     {
         #region Attributes
