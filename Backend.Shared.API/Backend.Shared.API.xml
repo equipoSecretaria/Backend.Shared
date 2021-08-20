@@ -92,9 +92,15 @@
             </summary>
             <param name="departamentoBusiness">The departamento business.</param>
         </member>
+        <member name="M:Backend.Shared.API.Controllers.DepartamentoController.GetDepartamento">
+            <summary>
+            GetDepartamento
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Backend.Shared.API.Controllers.DepartamentoController.GetAllDepartamento">
             <summary>
-            Gets the departamento.
+            GetAllDepartamento
             </summary>
             <returns></returns>
         </member>

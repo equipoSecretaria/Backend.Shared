@@ -9,9 +9,14 @@ namespace Backend.Shared.BusinessRules
     {
         #region Attributes
         /// <summary>
-        /// The repository departamento
+        /// _repositoryDepartamentoMySQL
         /// </summary>
-        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrDepartamento> RepositoryDepartamento;
+        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrDepartamento> _repositoryDepartamentoMySQL;
+
+        /// <summary>
+        /// _repositoryDepartamentoSQL
+        /// </summary>
+        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Departamento> _repositoryDepartamentoSQL;
 
         /// <summary>
         /// The telemetry exception
@@ -21,15 +26,17 @@ namespace Backend.Shared.BusinessRules
 
         #region Constructor        
         /// <summary>
-        /// Initializes a new instance of the <see cref="DepartamentoBusiness"/> class.
+        /// DepartamentoBusiness
         /// </summary>
-        /// <param name="repositoryDepartamento">The repository departamento.</param>
-        /// <param name="repoDepartamento">The repo departamento.</param>
-        /// <param name="telemetryException">The telemetry exception.</param>
-        public DepartamentoBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrDepartamento> repositoryDepartamento,
+        /// <param name="repositoryDepartamentoMySQL"></param>
+        /// <param name="repositoryDepartamentoSQL"></param>
+        /// <param name="telemetryException"></param>
+        public DepartamentoBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrDepartamento> repositoryDepartamentoMySQL,
+                                    Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Departamento> repositoryDepartamentoSQL,
                                     Utilities.Telemetry.ITelemetryException telemetryException)
         {
-            RepositoryDepartamento = repositoryDepartamento;
+            _repositoryDepartamentoMySQL = repositoryDepartamentoMySQL;
+            _repositoryDepartamentoSQL = repositoryDepartamentoSQL;
             TelemetryException = telemetryException;
         }
         #endregion
@@ -40,17 +47,35 @@ namespace Backend.Shared.BusinessRules
         /// Gets all departamento.
         /// </summary>
         /// <returns></returns>
-        public async Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrDepartamento>>> GetAllDepartamento()
+        public async Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrDepartamento>>> GetDepartamento()
         {
             try
             {
-                var result = await RepositoryDepartamento.GetAllAsync();
+                var result = await _repositoryDepartamentoMySQL.GetAllAsync();
                 return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrDepartamento>>(code: System.Net.HttpStatusCode.OK, message: "Solicitud ok", data: result.ToList(), count: result.Count());
             }
             catch (Exception ex)
             {
                 TelemetryException.RegisterException(ex);
                 return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrDepartamento>>(System.Net.HttpStatusCode.InternalServerError, "Error en el servidor!");
+            }
+        }
+
+        /// <summary>
+        /// GetAllDepartamento
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Departamento>>> GetAllDepartamento()
+        {
+            try
+            {
+                var result = await _repositoryDepartamentoSQL.GetAllAsync();
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Commons.Departamento>>(code: System.Net.HttpStatusCode.OK, message: "Solicitud ok", data: result.ToList(), count: result.Count());
+            }
+            catch (Exception ex)
+            {
+                TelemetryException.RegisterException(ex);
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Commons.Departamento>>(System.Net.HttpStatusCode.InternalServerError, "Error en el servidor!");
             }
         }
         #endregion

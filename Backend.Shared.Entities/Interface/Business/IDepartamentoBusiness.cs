@@ -9,10 +9,16 @@ namespace Backend.Shared.Entities.Interface.Business
     public interface IDepartamentoBusiness
     {
         /// <summary>
-        /// Gets all departamento.
+        /// GetDepartamento
         /// </summary>
         /// <returns></returns>
-        Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrDepartamento>>> GetAllDepartamento();
+        Task<Responses.ResponseBase<List<Models.Tramites.PrDepartamento>>> GetDepartamento();
+
+        /// <summary>
+        /// GetAllDepartamento
+        /// </summary>
+        /// <returns></returns>
+        Task<Responses.ResponseBase<List<Models.Commons.Departamento>>> GetAllDepartamento();
     }
 }
 

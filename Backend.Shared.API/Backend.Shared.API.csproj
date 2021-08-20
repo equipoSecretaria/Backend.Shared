@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\v2\DepartamentoController.cs" />
     <Compile Remove="Injections\AuthenticationInjection.cs" />
   </ItemGroup>
 
