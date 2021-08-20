@@ -13,7 +13,14 @@ namespace Backend.Shared.Entities.Interface.Business
         /// </summary>
         /// <param name="idDepartamento"></param>
         /// <returns></returns>
-        Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento);
+        Task<Responses.ResponseBase<List<Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento);
+
+        /// <summary>
+        /// GetAllMunicipioByIdDepartamento
+        /// </summary>
+        /// <param name="idDepartamento"></param>
+        /// <returns></returns>
+        Task<Responses.ResponseBase<List<Models.Commons.Municipio>>> GetAllMunicipioByIdDepartamento(string idDepartamento);
 
     }
 }
