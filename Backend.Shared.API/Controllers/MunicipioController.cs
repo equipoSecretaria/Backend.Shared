@@ -40,6 +40,18 @@ namespace Backend.Shared.API.Controllers
             var result = await MunicipioBusiness.GetMunicipioByIdDepartamento(idDepartamento);
             return StatusCode(result.Code, result);
         }
+
+        /// <summary>
+        /// GetAllMunicipioByIdDepartamento
+        /// </summary>
+        /// <param name="idDepartamento">The identifier departamento.</param>
+        /// <returns></returns>
+        [HttpGet("GetAllMunicipioByIdDepartamento/{idDepartamento}")]
+        public async Task<ActionResult> GetAllMunicipioByIdDepartamento(string idDepartamento)
+        {
+            var result = await MunicipioBusiness.GetAllMunicipioByIdDepartamento(idDepartamento);
+            return StatusCode(result.Code, result);
+        }
         #endregion
     }
 }

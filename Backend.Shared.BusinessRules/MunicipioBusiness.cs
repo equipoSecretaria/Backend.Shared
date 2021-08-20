@@ -1,5 +1,4 @@
-﻿using Backend.Shared.Entities.Responses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,29 +10,36 @@ namespace Backend.Shared.BusinessRules
     {
         #region Attributes
         /// <summary>
-        /// The repo municipio
+        /// _repoMunicipioMySQL
         /// </summary>
-        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> RepoMunicipio;
+        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> _repoMunicipioMySQL;
 
         /// <summary>
-        /// The telemetry exception
+        /// _repoMunicipioSQL
         /// </summary>
-        private readonly Utilities.Telemetry.ITelemetryException TelemetryException;
+        private readonly Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Municipio> _repoMunicipioSQL;
+
+        /// <summary>
+        /// _telemetryException
+        /// </summary>
+        private readonly Utilities.Telemetry.ITelemetryException _telemetryException;
         #endregion
 
         #region Constructor                
         /// <summary>
-        /// Initializes a new instance of the <see cref="MunicipioBusiness"/> class.
+        /// MunicipioBusiness
         /// </summary>
-        /// <param name="repoMunicipio">The repo municipio.</param>
-        /// <param name="telemetryException">The telemetry exception.</param>
-        public MunicipioBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> repoMunicipio,
+        /// <param name="repoMunicipioMySQL"></param>
+        /// <param name="repoMunicipioSQL"></param>
+        /// <param name="telemetryException"></param>
+        public MunicipioBusiness(Entities.Interface.Repository.IBaseRepositoryCommonsMySQL<Entities.Models.Tramites.PrMunicipio> repoMunicipioMySQL,
+                                 Entities.Interface.Repository.IBaseRepositoryCommonsSQLServer<Entities.Models.Commons.Municipio> repoMunicipioSQL,
                                  Utilities.Telemetry.ITelemetryException telemetryException)
         {
-            RepoMunicipio = repoMunicipio;
-            TelemetryException = telemetryException;
+            _repoMunicipioMySQL = repoMunicipioMySQL;
+            _repoMunicipioSQL = repoMunicipioSQL;
+            _telemetryException = telemetryException;
         }
-
         #endregion
 
         #region Methods        
@@ -43,11 +49,11 @@ namespace Backend.Shared.BusinessRules
         /// <param name="idDepartamento">The identifier departamento.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento)
+        public async Task<Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>> GetMunicipioByIdDepartamento(int idDepartamento)
         {
             try
             {
-                var result = await RepoMunicipio.GetAllAsync(predicate: p => p.IdDepartamento.Equals(idDepartamento));
+                var result = await _repoMunicipioMySQL.GetAllAsync(predicate: p => p.IdDepartamento.Equals(idDepartamento));
 
                 if (result == null)
                 {
@@ -57,8 +63,32 @@ namespace Backend.Shared.BusinessRules
             }
             catch (Exception ex)
             {
-                TelemetryException.RegisterException(ex);
+                _telemetryException.RegisterException(ex);
                 return new Entities.Responses.ResponseBase<List<Entities.Models.Tramites.PrMunicipio>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
+            }
+        }
+
+        /// <summary>
+        /// GetAllMunicipioByIdDepartamento
+        /// </summary>
+        /// <param name="idDepartamento"></param>
+        /// <returns></returns>
+        public async Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Municipio>>> GetAllMunicipioByIdDepartamento(string idDepartamento)
+        {
+            try
+            {
+                var result = await _repoMunicipioSQL.GetAllAsync(predicate: p => p.IdDepartamento.Equals(Guid.Parse(idDepartamento)));
+
+                if (result == null)
+                {
+                    return new Entities.Responses.ResponseBase<List<Entities.Models.Commons.Municipio>>(code: HttpStatusCode.OK, message: Middle.Messages.NoContent);
+                }
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Commons.Municipio>>(code: HttpStatusCode.OK, message: Middle.Messages.GetOk, data: result.ToList(), count: result.Count());
+            }
+            catch (Exception ex)
+            {
+                _telemetryException.RegisterException(ex);
+                return new Entities.Responses.ResponseBase<List<Entities.Models.Commons.Municipio>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
         #endregion
