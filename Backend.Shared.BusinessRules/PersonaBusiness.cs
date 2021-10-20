@@ -165,6 +165,11 @@ namespace Backend.Shared.BusinessRules
             {
                 var result = await _repositoryPersona.GetAsync(predicate: p => p.IdPersona.Equals(idUser));
 
+                if (result == null)
+                {
+                    return new ResponseBase<dynamic>(code: HttpStatusCode.OK, message: "No se encontraron resultados");
+                }
+
                 var personaDTO = new Entities.DTOs.PersonaVentanillaDTO
                 {
                     FullName = result.PNombre + " " + result.SNombre + " " + result.PApellido + " " + result.SApellido,
