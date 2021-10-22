@@ -48,6 +48,12 @@ namespace Backend.Shared.API
 
             });
 
+
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration = "rc-aeu-sds-dev-tramites.redis.cache.windows.net:6380,password=5bv+jkqQm20YIAhGQgyPvJQJWlu4KUMrlVhTzqjH86A=,ssl=True,abortConnect=False";
+            });
+
             services.AddInitialConfig();
             services.AddData(Configuration);
             services.AddUtilities(Configuration.GetValue<string>(Utilities.Constants.KeyVault.InstrumentationKey));
