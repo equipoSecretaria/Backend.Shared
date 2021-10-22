@@ -82,10 +82,10 @@ namespace Backend.Shared.BusinessRules
 
                     redisResult = Encoding.UTF8.GetBytes(serializedResultList);
 
-                    //var options = new DistributedCacheEntryOptions()
-                    //    .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
+                    var options = new DistributedCacheEntryOptions()
+                        .SetAbsoluteExpiration(DateTime.Now.AddDays(1));
                     //    .SetSlidingExpiration(TimeSpan.FromMinutes(2));
-                    await _cache.SetAsync(cacheKey, redisResult);
+                    await _cache.SetAsync(cacheKey, redisResult, options);
                 }
 
 
