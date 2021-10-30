@@ -13,8 +13,7 @@ namespace Backend.Shared.Entities.DTOs.v2
 
         [CustomIntValidator]
         public int TipoDocumento { get; set; }
-        [CustomIntValidator]
-        public int NumeroIdentificacion { get; set; }
+        public long NumeroIdentificacion { get; set; }
         public string TelefonoFijo { get; set; }
         [CustomStringValidator]
         public string TelefonoCelular { get; set; }
