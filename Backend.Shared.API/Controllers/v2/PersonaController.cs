@@ -49,7 +49,6 @@ namespace Backend.Shared.API.Controllers.v2
         /// <param name="requestPersonaJuridicaDTO"></param>
         /// <returns></returns>
         [HttpPost("AddPersonaJuridica")]
-        [ValidateModel]
         public async Task<ActionResult> AddPersonaJuridica(Entities.DTOs.v2.RequestPersonaJuridicaDTO requestPersonaJuridicaDTO)
         {
             var result = await _personaBusiness.AddPersonaJuridica(requestPersonaJuridicaDTO);
