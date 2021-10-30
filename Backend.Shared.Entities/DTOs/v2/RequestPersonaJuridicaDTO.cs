@@ -21,7 +21,6 @@ namespace Backend.Shared.Entities.DTOs.v2
         public string Email { get; set; }
         [CustomIntValidator]
         public int TipoDocumentoRepresentanteLegal { get; set; }
-        [CustomIntValidator]
         public int NumeroDocumentoRepresentanteLegal { get; set; }
         [CustomStringValidator]
         public string NombreRazonSocial { get; set; }
