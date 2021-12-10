@@ -174,8 +174,19 @@ namespace Backend.Shared.BusinessRules
                 {
                     FullName = result.PNombre + " " + result.SNombre + " " + result.PApellido + " " + result.SApellido,
                     NumeroIdentificacion = result.NumeIdentificacion,
-                    RazonSocial = result.NombreRs
-                };
+                    RazonSocial = result.NombreRs,
+                    TipoIdentificacion = result.TipoIdentificacion,
+                    PrimerNombre  = result.PNombre,
+                    SegundoNombre  = result.SNombre,
+                    PrimerApellido = result.PApellido,
+                    SegundoApellido = result.SApellido,
+                    Email = result.Email,
+                    TelefonoFijo  = result.TelefonoFijo,
+                    TelefonoCelular = result.TelefonoCelular,
+                    TipoIdentificacionRL = result.TipoIdentificacion,
+                    NumeroIdentificacionRL = result.NumeIdenRl
+
+    };
 
                 return new ResponseBase<dynamic>(code: HttpStatusCode.OK, message: "Solicitudd Ok", data: personaDTO);
 
