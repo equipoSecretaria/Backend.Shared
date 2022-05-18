@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Models.Tramites;
 
 namespace Backend.Shared.API.Controllers
 {
@@ -37,6 +38,21 @@ namespace Backend.Shared.API.Controllers
         public async Task<ActionResult> GetAllFuneraria()
         {
             var result = await FunerariaBusiness.GetAllFuneraria();
+            return StatusCode(result.Code, result);
+        }
+        #endregion
+        
+        
+        
+        #region Methods        
+        /// <summary>
+        /// UpdateFuneraria.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("UpdateFuneraria")]
+        public async Task<ActionResult> UpdateFuneraria(Funeraria funeraria, int id)
+        {
+            var result = await FunerariaBusiness.UpdateFuneraria(funeraria, id);
             return StatusCode(result.Code, result);
         }
         #endregion

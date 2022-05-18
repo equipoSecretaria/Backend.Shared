@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Models.Tramites;
+using Backend.Shared.Entities.Responses;
 
 namespace Backend.Shared.Entities.Interface.Business
 {
@@ -13,7 +15,28 @@ namespace Backend.Shared.Entities.Interface.Business
         /// </summary>
         /// <returns></returns>
         Task<Entities.Responses.ResponseBase<List<dynamic>>> GetAllCementerio();
+
+
+
+        /// <summary>
+        /// Gets  cementerioById.
+        /// </summary>
+        /// <returns></returns>
+        Task<Entities.Responses.ResponseBase<dynamic>> GetCementerioById(string id);
+
+        
+        
+        Task<ResponseBase<dynamic>> UpadteCementerio(Cementerio cementerio, int id);
     }
+    
+    
+
 }
+    
+    
+    
+
+    
+
 
 

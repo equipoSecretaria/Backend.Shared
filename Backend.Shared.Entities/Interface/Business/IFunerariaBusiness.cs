@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Models.Tramites;
 
 namespace Backend.Shared.Entities.Interface.Business
 {
@@ -13,6 +14,14 @@ namespace Backend.Shared.Entities.Interface.Business
         /// </summary>
         /// <returns></returns>
         Task<Entities.Responses.ResponseBase<List<dynamic>>> GetAllFuneraria();
+        
+        
+        
+        /// <summary>
+        /// UpdateFuneraria.
+        /// </summary>
+        /// <returns></returns>
+        Task<Entities.Responses.ResponseBase<dynamic>>UpdateFuneraria(Funeraria funeraria, int id);
     }
 }
 

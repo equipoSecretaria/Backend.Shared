@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Models.Tramites;
+using Backend.Shared.Entities.Responses;
 
 namespace Backend.Shared.BusinessRules
 {
@@ -56,6 +58,41 @@ namespace Backend.Shared.BusinessRules
                 return new Entities.Responses.ResponseBase<List<dynamic>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
+
+        public async Task<ResponseBase<dynamic>> UpdateFuneraria(Funeraria funeraria, int id)
+        {
+            try
+            {
+                var consulta = ($"SELECT * FROM V_FUNERARIAS WHERE NROIDENT = {Convert.ToInt64(id)}");
+                Console.WriteLine("consulta =  " + consulta);
+                var execute = await OracleContext.ExecuteQuery<dynamic>(consulta);
+                
+                
+                string QueryToExec = "UPDATE  SECRETARIA.V_FUNERARIAS SET   TIPO_I = '"+ funeraria.TIPO_I + "' ,  RAZON_S = '" + funeraria.RAZON_S + "' , DIRECCION = '" + funeraria.DIRECCION +"' , TELEFONO_1 = '" + 
+                                     funeraria.TELEFONO_1 + "' , TIPO_I_PROP = '" + funeraria.TIPO_I_PROP + "' ,  NROIDENT_PROP = '" + funeraria.NROIDENT_PROP + "' , NOMBRE_PROP = '" + funeraria.NOMBRE_PROP + "' , NUM_SALAS = '" + 
+                                     + funeraria.NUM_SALAS +"' , TIPO_I_REP = '" + funeraria.TIPO_I_REP + "' , NROIDENT_REP = '" + funeraria.NROIDENT_REP + "' , NOMBRE_REP = '" + funeraria.NOMBRE_REP + "'  WHERE NROIDENT = '" + id + "'";
+
+                if (execute.Count() == 0)
+                {
+                    return new ResponseBase<dynamic>(code: System.Net.HttpStatusCode.NotFound, message: "No se encontró el registro para actualizar");
+ 
+                }
+                else
+                {
+                    var updates = await OracleContext.ExecuteQuery<dynamic>(QueryToExec);
+                    Console.WriteLine("registros modificados -> " + updates);
+                    return new ResponseBase<dynamic>(code: System.Net.HttpStatusCode.OK, message: "registro modificado");
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                TelemetryException.RegisterException(ex);
+                return new ResponseBase<dynamic>(code: System.Net.HttpStatusCode.InternalServerError,
+                    message: "registro no modificado");
+            }
+        }
+
         #endregion
     }
 }
