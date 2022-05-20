@@ -41,5 +41,20 @@ namespace Backend.Shared.API.Controllers
             return StatusCode(result.Code, result);
         }
         #endregion
+        
+        
+        #region Methods                
+        /// <summary>
+        /// Gets the barrio by identifier upz.
+        /// </summary>
+        /// <param name="idUpz">The identifier upz.</param>
+        /// <returns></returns>
+        [HttpGet("GetBarrios")]
+        public async Task<ActionResult> GetBarrio()
+        {
+            var result = await BarrioBusiness.GetBarrios();
+            return StatusCode(result.Code, result);
+        }
+        #endregion
     }
 }

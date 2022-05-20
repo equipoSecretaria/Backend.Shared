@@ -2,6 +2,9 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Interface.Business;
+using Backend.Shared.Entities.Models.Tramites;
+using Backend.Shared.Entities.Responses;
 
 namespace Backend.Shared.BusinessRules
 {
@@ -56,6 +59,41 @@ namespace Backend.Shared.BusinessRules
                 return new Entities.Responses.ResponseBase<dynamic>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
+
+        public async Task<ResponseBase<dynamic>> UpdateProfesional(ProfesionalSalud profesionalSalud, int id)
+        {
+            try
+            {
+                var consulta = ($"SELECT * FROM V_PROFESIONALES_SALUD_1 WHERE NROIDENT = {Convert.ToInt64(id)}");
+                Console.WriteLine("Profesional => " + consulta);
+                var execute = await OracleContext.ExecuteQuery<dynamic>(consulta);
+
+                string QueryToExec = "UPDATE V_PROFESIONALES_SALUD_1 SET TIPO_I = '" + profesionalSalud.TIPO_I +
+                                     "', NROIDENT = '" + profesionalSalud.NROIDENT + "' , SITIO_EXP_IDENT = '" +
+                                     profesionalSalud.SITIO_EXP_IDENT + "' , NOMBRES = '" +
+                                     profesionalSalud.NOMBRES + "' , FECHA_NACIMIENTO = '" +
+                                     profesionalSalud.FECHA_NACIMIENTO + "' WHERE NROIDENT = '" + id + "' ";
+
+                if (execute.Count() == 0 )
+                {
+                    return new ResponseBase<dynamic>(code: System.Net.HttpStatusCode.NotFound, message: "No se encontró el registro para actualizar");
+
+                }
+                else
+                {
+                    var updates = await OracleContext.ExecuteQuery<dynamic>(QueryToExec);
+                    Console.WriteLine("registros modificados -> " + updates);
+                    return new ResponseBase<dynamic>(System.Net.HttpStatusCode.OK, "registro modificado");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                TelemetryException.RegisterException(ex);
+                return new ResponseBase<dynamic>(code: System.Net.HttpStatusCode.InternalServerError,
+                    message: "registro no modificado");
+            }
+        }
+
         #endregion
     }
 }

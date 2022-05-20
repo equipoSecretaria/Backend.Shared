@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Backend.Shared.Entities.Models.Tramites;
 
 namespace Backend.Shared.BusinessRules
 {
@@ -61,6 +62,20 @@ namespace Backend.Shared.BusinessRules
                 return new Entities.Responses.ResponseBase<List<Barrio>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
+
+        public async Task<ResponseBase<List<Barrio>>> GetBarrios()
+        {
+            try
+            {
+                var barrios = await RepoBarrio.GetAllAsync();
+                return new Entities.Responses.ResponseBase<List<Barrio>>(System.Net.HttpStatusCode.OK, "Solicitud OK",
+                    barrios.ToList(), barrios.Count());
+            }            catch (Exception)
+            {
+                return new Entities.Responses.ResponseBase<List<Barrio>>(System.Net.HttpStatusCode.InternalServerError, "Error en el servidor!");
+            }
+        }
+
         #endregion
     }
 }

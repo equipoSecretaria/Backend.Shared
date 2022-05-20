@@ -28,6 +28,13 @@
             <param name="idUpz">The identifier upz.</param>
             <returns></returns>
         </member>
+        <member name="M:Backend.Shared.API.Controllers.BarrioController.GetBarrio">
+            <summary>
+            Gets the barrio by identifier upz.
+            </summary>
+            <param name="idUpz">The identifier upz.</param>
+            <returns></returns>
+        </member>
         <member name="T:Backend.Shared.API.Controllers.CementerioController">
             <summary>
             CementerioController
@@ -363,6 +370,12 @@
             <param name="numeroIdentificacion">The numero identificacion.</param>
             <returns></returns>
         </member>
+        <member name="M:Backend.Shared.API.Controllers.ProfesionalesSaludController.UpdateProfesionalSalud(Backend.Shared.Entities.Models.Tramites.ProfesionalSalud,System.Int32)">
+            <summary>
+            Update profesional salud.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Backend.Shared.API.Controllers.SexoController">
             <summary>
             SexoController
@@ -383,6 +396,29 @@
         <member name="M:Backend.Shared.API.Controllers.SexoController.GetSexo">
             <summary>
             Gets the sexo.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Backend.Shared.API.Controllers.SubRedController">
+            <summary>
+            SubRedController
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Backend.Shared.API.Controllers.SubRedController.SubRedBusiness">
+            <summary>
+            The barrio business
+            </summary>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.SubRedController.#ctor(Backend.Shared.Entities.Interface.Business.ISubRedBusiness)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Backend.Shared.API.Controllers.SubRedController"/> class.
+            </summary>
+            <param name="subRedBusiness">The barrio business.</param>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.SubRedController.GetSubRed">
+            <summary>
+            Gets SubRed.
             </summary>
             <returns></returns>
         </member>
@@ -431,6 +467,12 @@
             Gets the upz by identifier localidad.
             </summary>
             <param name="idLocalidad">The identifier localidad.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Backend.Shared.API.Controllers.UpzController.GetUpz">
+            <summary>
+            Gets the upz by identifier localidad.
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Backend.Shared.API.Controllers.v2.PersonaController">

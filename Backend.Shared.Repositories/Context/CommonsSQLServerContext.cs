@@ -11,7 +11,8 @@ namespace Backend.Shared.Repositories.Context
         public virtual DbSet<Entities.Models.Commons.Municipio> Municipio { get; set; }
         public virtual DbSet<Entities.Models.Commons.Upz> Upz { get; set; }
         public virtual DbSet<Entities.Models.Commons.Dominio> Dominio { get; set; }
-        public virtual DbSet<Entities.Models.Commons.TipoDominio> TipoDominio { get; set; }
+        public virtual DbSet<Entities.Models.Commons.TipoDominio> TipoDominio { get; set; } 
+        // public virtual DbSet<Entities.Models.Commons.SubRed>  SubRed{ get; set; }
 
         public SharedSQLServerContext(DbContextOptions<SharedSQLServerContext> options)
             : base(options)
@@ -27,6 +28,7 @@ namespace Backend.Shared.Repositories.Context
             modelBuilder.AddLocalidad();
             modelBuilder.AddMunicipio();
             modelBuilder.AddUpz();
+            modelBuilder.AddSubRed();
         }
     }
 }

@@ -41,5 +41,18 @@ namespace Backend.Shared.API.Controllers
             return StatusCode(result.Code, result);
         }
         #endregion
+        
+        #region Methods                
+        /// <summary>
+        /// Gets the upz by identifier localidad.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetUpz")]
+        public async Task<ActionResult> GetUpz()
+        {
+            var result = await UpzBusiness.GetUpz();
+            return StatusCode(result.Code, result);
+        }
+        #endregion
     }
 }

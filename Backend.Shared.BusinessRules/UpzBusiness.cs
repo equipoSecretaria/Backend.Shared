@@ -61,6 +61,21 @@ namespace Backend.Shared.BusinessRules
                 return new Entities.Responses.ResponseBase<List<Upz>>(code: HttpStatusCode.InternalServerError, message: Middle.Messages.ServerError);
             }
         }
+
+        public async Task<ResponseBase<List<Upz>>> GetUpz()
+        {
+            try
+            {
+                var upz = await RepoUpz.GetAllAsync();
+                return new Entities.Responses.ResponseBase<List<Upz>>(System.Net.HttpStatusCode.OK,
+                    message: "Solicitud OK ", data: upz.ToList(), upz.Count());
+            }
+            catch (Exception)
+            {
+                return new Entities.Responses.ResponseBase<List<Upz>>(System.Net.HttpStatusCode.InternalServerError, "Error en el servidor!");
+            }
+        }
+
         #endregion
     }
 }

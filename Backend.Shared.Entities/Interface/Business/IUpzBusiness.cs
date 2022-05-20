@@ -14,6 +14,12 @@ namespace Backend.Shared.Entities.Interface.Business
         /// <param name="idLocalidad">The identifier localidad.</param>
         /// <returns></returns>
         Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Upz>>> GetUpzByIdLocalidad(string idLocalidad);
+        
+        /// <summary>
+        /// Gets the upz by identifier localidad.
+        /// </summary>
+        /// <returns></returns>
+        Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Upz>>> GetUpz();
 
     }
 }

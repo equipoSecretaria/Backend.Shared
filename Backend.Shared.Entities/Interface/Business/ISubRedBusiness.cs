@@ -2,22 +2,17 @@
 using System.Threading.Tasks;
 
 namespace Backend.Shared.Entities.Interface.Business
-{
+{ 
     /// <summary>
-    /// ILocalidadBusiness
+    /// ISubRedBusiness
     /// </summary>
-    public interface ILocalidadBusiness
+    public interface ISubRedBusiness
     {
         /// <summary>
-        /// Gets all localidad.
+        /// Get SubRed .
         /// </summary>
         /// <returns></returns>
-        Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.Localidad>>> GetAllLocalidad();
-
-
-
+        Task<Entities.Responses.ResponseBase<List<Entities.Models.Commons.SubRed>>> GetSubRed();
 
     }
 }
-
-

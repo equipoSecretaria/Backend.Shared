@@ -279,6 +279,25 @@ namespace Backend.Shared.Repositories.Context
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
+            
+            // modelBuilder.Entity<Entities.Models.Tramites.PrSubred>(entity =>
+            // {
+            //     entity.HasKey(e => e.IdSubRed)
+            //         .HasName("PRIMARY");
+            //
+            //     entity.ToTable("pr_subred");
+            //     
+            //
+            //     entity.Property(e => e.Codigo)
+            //         .IsRequired()
+            //         .HasMaxLength(10)
+            //         .IsUnicode(false);
+            //
+            //     entity.Property(e => e.Nombre)
+            //         .IsRequired()
+            //         .HasMaxLength(100)
+            //         .IsUnicode(false);
+            // });
 
             OnModelCreatingPartial(modelBuilder);
         }
